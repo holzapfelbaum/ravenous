@@ -7,14 +7,6 @@ const sortByOptions = {
   'Most Reviewed': 'review_count'
 }
 
-getSortByClass(sortByOption) {
-  if(this.state.sortBy === sortByOption) {
-    return 'active';
-  } else {
-    return '';
-  }
-}
-
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
@@ -22,6 +14,14 @@ class SearchBar extends React.Component {
     term: '';
     location: '';
     sortBy: 'best_match';
+  }
+
+  getSortByClass(sortByOption) {
+    if(this.state.sortBy === sortByOption) {
+      return 'active';
+    } else {
+      return '';
+    }
   }
 
   renderSortByOptions() { // purpose of renderSortByOptions() is to dynamically create the list items needed to display the sort options (Best Match, Highest Rated, Most Reviewed), to help future proof against potential changes to the Yelp API.
