@@ -24,6 +24,10 @@ class SearchBar extends React.Component {
     }
   }
 
+  handleSortByChange(sortByOption) {
+    this.setState({sortBy: sortByOption})
+  }
+
   renderSortByOptions() { // purpose of renderSortByOptions() is to dynamically create the list items needed to display the sort options (Best Match, Highest Rated, Most Reviewed), to help future proof against potential changes to the Yelp API.
     return Object.keys(sortByOptions).map(sortByOption => {
       let sortByOptionValue = sortByOptions[sortByOption]; // Inside of the callback function, access the sortByOptions values using the sortByOption parameter of the callback function. Store values in variable called sortByOptionValue.
