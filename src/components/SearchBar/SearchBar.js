@@ -13,6 +13,7 @@ class SearchBar extends React.Component {
     this.state = {};
     this.handleTermChange = this.handleTermChange.bind(this);
     this.handleLocationChange = this.handleLocationChange.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
     term: '';
     location: '';
     sortBy: 'best_match';
@@ -38,6 +39,11 @@ class SearchBar extends React.Component {
     this.setState({location: event.target.value})
   }
 
+  handleSearch(event) {
+    this.props.searchYelp(this.state.term, this.state.location, this.state.sortBy),
+    event.preventDefault()
+  }
+
   renderSortByOptions() { // purpose of renderSortByOptions() is to dynamically create the list items needed to display the sort options (Best Match, Highest Rated, Most Reviewed), to help future proof against potential changes to the Yelp API.
     return Object.keys(sortByOptions).map(sortByOption => {
       let sortByOptionValue = sortByOptions[sortByOption]; // Inside of the callback function, access the sortByOptions values using the sortByOption parameter of the callback function. Store values in variable called sortByOptionValue.
@@ -58,7 +64,7 @@ class SearchBar extends React.Component {
           <input placeholder="Where?" onChange={this.handleLocationChange} />
         </div>
         <div className="SearchBar-submit">
-          <a>Let's Go</a>
+          <a onClick={this.handleSearch}>Let's Go</a>
         </div>
       </div>
     );
