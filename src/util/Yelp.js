@@ -2,7 +2,7 @@ const clientId = 'X-yXZc2rCZhZxJkSp8JQ3w';
 const secret = 'jUlbYV7KxnMiqGKPAuACy6V3wg3pFkhueSvZ4Sy9qbPANHOxygaUhHacCR6vsMsZ';
 const accessToken = '';
 
-const Yelp = {
+export const Yelp = {
   getAccessToken() {
     if (accessToken) {
       return new Promise(resolve => {
@@ -31,7 +31,16 @@ const Yelp = {
   }).then(jsonResponse => {
     if (jsonResponse.businesses) {
       return jsonResponse.businesses.map(business => {
-        
+        id: business.id,
+        imageSrc: business.image_url,
+        name: business.name,
+        address: business.location.address1,
+        city: business.location.city,
+        state: business.location.state,
+        zipCode: business.location.zip_code,
+        category: business.categories,
+        rating: business.rating,
+        reviewCount: business.review_count
       });
     }
   })
