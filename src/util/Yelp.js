@@ -9,12 +9,12 @@ const Yelp = {
         resolve(accessToken));
       });
     }
-    return fetch(`https://api.yelp.com/oauth2/token?grant_type=client_credentials&client_id= + ${clientId} + &client_secret= + ${secret}`, {
+    return fetch(`https://cors-anywhere.herokuapp.com/ + https://api.yelp.com/oauth2/token?grant_type=client_credentials&client_id= + ${clientId} + &client_secret= + ${secret}`, {
       method: 'POST',
     }).then(response => {
       return response.json();
     }).then(jsonResponse => {
       accessToken === jsonResponse.access_token;
     });
-  }
+  },
 }
