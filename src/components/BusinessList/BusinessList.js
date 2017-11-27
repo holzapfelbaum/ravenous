@@ -9,7 +9,7 @@ class BusinessList extends React.Component {
     return (
       <div className="BusinessList">
         {this.props.businesses.map(business => { // per Shawn, needed curly braces around .map() statement, since it is JS within a JSX element
-          <Business business={business} /> // built functionality for BusinessList component to iterate through the array and return Business components
+          <Business business={business} key={business.id} /> // built functionality for BusinessList component to iterate through the array and return Business components
         })}
       </div>
     )
