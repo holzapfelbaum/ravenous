@@ -5,28 +5,13 @@ import BusinessList from './components/BusinessList/BusinessList.js';
 import SearchBar from './components/SearchBar/SearchBar.js';
 import Yelp from './util/Yelp.js';
 
-const business = {
-  imageSrc: ,
-  name: ,
-  address: ,
-  city: ,
-  state: ,
-  zipCode: ,
-  category: ,
-  rating: ,
-  reviewCount:
-}
-
-const businesses = [
-
-];
-
 class App extends Component {
-  constructor() {
+  constructor(props) {
+    super(props);
     this.state = {
       businesses: []
     };
-    this.searchYelp.bind(this);
+    this.searchYelp.bind(this)
   }
 
   searchYelp(term, location, sortBy) {
